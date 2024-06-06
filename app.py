@@ -16,6 +16,10 @@ def finalizar_app():
     os.system('cls')
     print('Encerrando programa')
 
+def opcao_invalida():
+    print('Opção inválida!\n')
+    input('Digite uma tecla para reiniciar: ')
+
 def escolher_opcao():
     opcao_escolhida = int(input('Escolha uma opção: '))
     print(f'Você escolheu a opção: {opcao_escolhida}')
@@ -26,8 +30,10 @@ def escolher_opcao():
         print('Listar jogos')
     elif opcao_escolhida == 3:
         print('Ativar jogo')
-    else:
+    elif opcao_escolhida == 4:
         finalizar_app()
+    else:
+        opcao_invalida()
 
 def main():
     exibir_nome_do_programa()
