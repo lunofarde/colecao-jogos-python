@@ -19,20 +19,24 @@ def finalizar_app():
 def opcao_invalida():
     print('Opção inválida!\n')
     input('Digite uma tecla para reiniciar: ')
+    main()
 
 def escolher_opcao():
-    opcao_escolhida = int(input('Escolha uma opção: '))
-    print(f'Você escolheu a opção: {opcao_escolhida}')
+    try:
+        opcao_escolhida = int(input('Escolha uma opção: '))
+        print(f'Você escolheu a opção: {opcao_escolhida}')
 
-    if opcao_escolhida == 1:
-        print('Cadastro de jogos')
-    elif opcao_escolhida == 2:
-        print('Listar jogos')
-    elif opcao_escolhida == 3:
-        print('Ativar jogo')
-    elif opcao_escolhida == 4:
-        finalizar_app()
-    else:
+        if opcao_escolhida == 1:
+            print('Cadastro de jogos')
+        elif opcao_escolhida == 2:
+            print('Listar jogos')
+        elif opcao_escolhida == 3:
+            print('Ativar jogo')
+        elif opcao_escolhida == 4:
+            finalizar_app()
+        else:
+            opcao_invalida()
+    except:
         opcao_invalida()
 
 def main():
