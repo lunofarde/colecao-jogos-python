@@ -1,72 +1,75 @@
 import os
 
-jogos = []
+jogos = [{'nome':'Zelda', 'categoria':'RPG', 'ativo':False},
+         {'nome':'Mario', 'categoria':'Plataforma', 'ativo':True},
+         {'nome':'Metroid', 'categoria':'Plataforma', 'ativo':True}]
 
 def exibir_nome_do_programa():
+    print("""
+    █▀▀ █▀█ █░░ █▀▀ █▀▀ ▄▀█ █▀█   █▀▄ █▀▀   ░░█ █▀█ █▀▀ █▀█ █▀
+    █▄▄ █▄█ █▄▄ ██▄ █▄▄ █▀█ █▄█   █▄▀ ██▄   █▄█ █▄█ █▄█ █▄█ ▄█
+    """)
 
-    print('''
-░█████╗░░█████╗░██╗░░░░░███████╗░█████╗░░█████╗░░█████╗░  ██████╗░███████╗
-██╔══██╗██╔══██╗██║░░░░░██╔════╝██╔══██╗██╔══██╗██╔══██╗  ██╔══██╗██╔════╝
-██║░░╚═╝██║░░██║██║░░░░░█████╗░░██║░░╚═╝███████║██║░░██║  ██║░░██║█████╗░░
-██║░░██╗██║░░██║██║░░░░░██╔══╝░░██║░░██╗██╔══██║██║░░██║  ██║░░██║██╔══╝░░
-╚█████╔╝╚█████╔╝███████╗███████╗╚█████╔╝██║░░██║╚█████╔╝  ██████╔╝███████╗
-░╚════╝░░╚════╝░╚══════╝╚══════╝░╚════╝░╚═╝░░╚═╝░╚════╝░  ╚═════╝░╚══════╝
-
-░░░░░██╗░█████╗░░██████╗░░█████╗░░██████╗
-░░░░░██║██╔══██╗██╔════╝░██╔══██╗██╔════╝
-░░░░░██║██║░░██║██║░░██╗░██║░░██║╚█████╗░
-██╗░░██║██║░░██║██║░░╚██╗██║░░██║░╚═══██╗
-╚█████╔╝╚█████╔╝╚██████╔╝╚█████╔╝██████╔╝
-░╚════╝░░╚════╝░░╚═════╝░░╚════╝░╚═════╝░''')
-def exibir_opcao():
-    print('1. cadrastra jogos')
-    print('2. listar jogos')
-    print('3. ativar jogod')
+def exibir_opcoes():
+    print('1. Cadastrar jogo')
+    print('2. Listar jogos')
+    print('3. Ativar jogo')
     print('4. sair\n')
+
 def finalizar_app():
-    os.sytem('cls')
-    print('encerrando programa')
+    os.system('cls')
+    print('Encerrando programa')
 
 def opcao_invalida():
     print('Opção inválida!\n')
     input('Digite uma tecla para reiniciar: ')
     main()
 
-def cadastra_novo_jogo():
+def cadastrar_novo_jogo():
     os.system('cls')
     print('cadastrar novo jogo\n')
-    nome_jogo = input('digite o nome do jogo: ')
-    jogos.append(nome_jogo)
-    print(jogos)
-    input('digite uma tecla para reiniciar: ')
+    nome_jogo = input('Digite o nome do Jogo: ')
+    categoria = input('Digite a categorio do Jogo: ') 
+    dados_do_jogo = {'nome': nome_jogo, 'categoria':categoria,'ativo':False}  
+    jogos.append(dados_do_jogo)    
+    input('Digite uma tecla para reiniciar: ')
+    main()
+
+def listar_jogos():
+    os.system('cls')
+    print('Lista de jogos\n')
+    for jogo in jogos:
+        nome_do_jogo = jogo['nome']
+        categoria_do_jogo = jogo['categoria']
+        ativo_jogo = jogo['ativo']
+        print(f' - {nome_do_jogo} | {categoria_do_jogo} | {ativo_jogo}' )
+
+    input('Digite uma tecla para reiniciar: ')
     main()
 
 def escolher_opcao():
     try:
-        opcao_escolhida = int(input('escolha uma das opção: '))
-        print('voce escolho a opção: ' , opcao_escolhida)
-        print(f'voce escolho a opção: {opcao_escolhida}\n')
-    
+        opcao_escolhida = int(input('Escolha uma opção: '))
+        print(f'Você escolheu a opção: {opcao_escolhida}')
+
         if opcao_escolhida == 1:
-            cadastra_novo_jogo()
+            cadastrar_novo_jogo()
         elif opcao_escolhida == 2:
-            print('lista de jogos')
+            listar_jogos()
         elif opcao_escolhida == 3:
-            print('ativar jogos')
+            print('Ativar jogo')
         elif opcao_escolhida == 4:
             finalizar_app()
         else:
             opcao_invalida()
     except:
         opcao_invalida()
-        
 
 def main():
     exibir_nome_do_programa()
-    exibir_opcao()
+    exibir_opcoes()
     escolher_opcao()
 
-if __name__ == '__main__':
-     main()
-   
 
+if __name__ == '__main__':
+    main()
