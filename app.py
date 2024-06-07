@@ -1,20 +1,29 @@
 import os
 
 def exibir_nome_do_programa():
-    print("""
-    █▀▀ █▀█ █░░ █▀▀ █▀▀ ▄▀█ █▀█   █▀▄ █▀▀   ░░█ █▀█ █▀▀ █▀█ █▀
-    █▄▄ █▄█ █▄▄ ██▄ █▄▄ █▀█ █▄█   █▄▀ ██▄   █▄█ █▄█ █▄█ █▄█ ▄█
-    """)
 
-def exibir_opcoes():
-    print('1. Cadastrar jogo')
-    print('2. Listar jogos')
-    print('3. Ativar jogo')
+    print('''
+░█████╗░░█████╗░██╗░░░░░███████╗░█████╗░░█████╗░░█████╗░  ██████╗░███████╗
+██╔══██╗██╔══██╗██║░░░░░██╔════╝██╔══██╗██╔══██╗██╔══██╗  ██╔══██╗██╔════╝
+██║░░╚═╝██║░░██║██║░░░░░█████╗░░██║░░╚═╝███████║██║░░██║  ██║░░██║█████╗░░
+██║░░██╗██║░░██║██║░░░░░██╔══╝░░██║░░██╗██╔══██║██║░░██║  ██║░░██║██╔══╝░░
+╚█████╔╝╚█████╔╝███████╗███████╗╚█████╔╝██║░░██║╚█████╔╝  ██████╔╝███████╗
+░╚════╝░░╚════╝░╚══════╝╚══════╝░╚════╝░╚═╝░░╚═╝░╚════╝░  ╚═════╝░╚══════╝
+
+░░░░░██╗░█████╗░░██████╗░░█████╗░░██████╗
+░░░░░██║██╔══██╗██╔════╝░██╔══██╗██╔════╝
+░░░░░██║██║░░██║██║░░██╗░██║░░██║╚█████╗░
+██╗░░██║██║░░██║██║░░╚██╗██║░░██║░╚═══██╗
+╚█████╔╝╚█████╔╝╚██████╔╝╚█████╔╝██████╔╝
+░╚════╝░░╚════╝░░╚═════╝░░╚════╝░╚═════╝░''')
+def exibir_opcao():
+    print('1. cadrastra jogos')
+    print('2. listar jogos')
+    print('3. ativar jogod')
     print('4. sair\n')
-
 def finalizar_app():
-    os.system('cls')
-    print('Encerrando programa')
+    os.sytem('cls')
+    print('encerrando programa')
 
 def opcao_invalida():
     print('Opção inválida!\n')
@@ -23,27 +32,30 @@ def opcao_invalida():
 
 def escolher_opcao():
     try:
-        opcao_escolhida = int(input('Escolha uma opção: '))
-        print(f'Você escolheu a opção: {opcao_escolhida}')
-
+        opcao_escolhida = int(input('escolha uma das opção: '))
+        print('voce escolho a opção: ' , opcao_escolhida)
+        print(f'voce escolho a opção: {opcao_escolhida}\n')
+    
         if opcao_escolhida == 1:
-            print('Cadastro de jogos')
+            print('cadastro de jogos')
         elif opcao_escolhida == 2:
-            print('Listar jogos')
+            print('lista de jogos')
         elif opcao_escolhida == 3:
-            print('Ativar jogo')
+            print('ativar jogos')
         elif opcao_escolhida == 4:
             finalizar_app()
         else:
             opcao_invalida()
     except:
         opcao_invalida()
+        
 
 def main():
     exibir_nome_do_programa()
-    exibir_opcoes()
+    exibir_opcao()
     escolher_opcao()
 
-
 if __name__ == '__main__':
-    main()
+     main()
+   
+
