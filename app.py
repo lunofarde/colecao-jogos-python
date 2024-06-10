@@ -42,7 +42,8 @@ def listar_jogos():
         nome_do_jogo = jogo['nome']
         categoria_do_jogo = jogo['categoria']
         ativo_jogo = jogo['ativo']
-        print(f' - {nome_do_jogo} | {categoria_do_jogo} | {ativo_jogo}' )
+        print(f' - {nome_do_jogo} | {categoria_do_jogo} | {1
+        }' )
 
     input('Digite uma tecla para reiniciar: ')
     main()
